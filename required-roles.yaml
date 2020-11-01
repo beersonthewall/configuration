@@ -1,0 +1,7 @@
+- src: geerlingguy.docker
+- src: geerlingguy.git
+- src: hurricanehrndz.rustup
+- src: fubarhouse.golang
+- src: githubixx.kubectl
+- src: istvano.kustomize
+- src: andrewrothstein.kind

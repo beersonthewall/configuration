@@ -1,0 +1,24 @@
+---
+- name: Development environment setup
+  hosts: all
+  become: true
+  roles:
+    - geerlingguy.docker
+    - geerlingguy.git
+    - hurricanehrndz.rustup
+    - fubarhouse.golang
+    - githubixx.kubectl
+    - istvano.kustomize
+    - andrewrothstein.kind
+  tasks:
+    - name: Install emacs
+      apt:
+        name: emacs
+        state: latest
+        update_cache: yes
+
+    - name: Installing hugo static site generator
+      apt:
+        name: hugo
+        state: latest
+        update_cache: yes
