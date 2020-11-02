@@ -17,6 +17,17 @@
         state: latest
         update_cache: yes
 
+    - name: Create .emacs.d/ directory
+      file:
+        path: ~/.emacs.d/
+        state: directory
+        mode: '0755'
+
+    - name: Emacs configuration
+      copy:
+        src: init.el
+        dest: ~/.emacs.d/init.el
+
     - name: Installing hugo static site generator
       apt:
         name: hugo
