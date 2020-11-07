@@ -13,7 +13,7 @@
 
 ### Environment setup
 
-environment-setup.yaml
+playbooks/dev-env.yaml
 
 Software:
     - go
@@ -21,15 +21,11 @@ Software:
     - kubectl
     - hugo
     - emacs
-    - zsh
     - docker
-    - python
     - kustomize
-    - rust
     - git
 Configuration:
-    - zsh dotfiles
-    - zsh prompt
+    - dotfiles
     - emacs
 
 ## Testing Playbooks with Vagrant & Virtualbox
