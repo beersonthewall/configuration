@@ -7,6 +7,8 @@
 * ```sh ansible-galaxy install -r required-roles.yml```
 * ```sh ansible ```
 
+```sh ansible-playbook -i inventory playbooks/dev-env.yaml -K```
+
 ## All playbooks
 
 ### Environment setup

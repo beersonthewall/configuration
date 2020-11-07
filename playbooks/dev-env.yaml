@@ -10,10 +10,6 @@
     - istvano.kustomize
     - andrewrothstein.kind
   tasks:
-    - name: APT update
-      apt:
-        update_cache: yes
-
     - name: Install curl
       apt:
         name: curl
@@ -24,13 +20,6 @@
         name: emacs
         state: present
 
-    - name: Install docker
-      import_role:
-          name: geerlingguy.docker
-      vars:
-          docker_users:
-            - "{{ user }}"
-            
     - name: Install go
       import_role: 
           name: andrewrothstein.go
@@ -39,5 +28,13 @@
       apt:
           name: hugo
           state: present
-          
+
+    - name: Install docker
+      import_role:
+          name: geerlingguy.docker
+      become: true
+      vars:
+          docker_users:
+            - "{{ user }}"
+            
        
