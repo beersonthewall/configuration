@@ -15,3 +15,5 @@ alias enw="emacs -nw"
 
 # misc
 alias ll="ls -l"
+alias k="kubectl"
+

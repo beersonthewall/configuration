@@ -3,7 +3,7 @@
 ## Getting started
 
 * Install python
-* Install ansible
+* Install ansible (through pip3 to avoid issues with apt update)
 * ```sh ansible-galaxy install -r required-roles.yml```
 * ```sh ansible ```
 
