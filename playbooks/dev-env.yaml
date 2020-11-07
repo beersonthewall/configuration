@@ -2,34 +2,42 @@
 - name: Development environment setup
   hosts: all
   become: true
+  vars:
+    user: matthew
   roles:
-    - geerlingguy.docker
     - geerlingguy.git
-    - hurricanehrndz.rustup
-    - fubarhouse.golang
     - githubixx.kubectl
     - istvano.kustomize
     - andrewrothstein.kind
   tasks:
+    - name: APT update
+      apt:
+        update_cache: yes
+
+    - name: Install curl
+      apt:
+        name: curl
+        state: present
+
     - name: Install emacs
       apt:
         name: emacs
-        state: latest
-        update_cache: yes
+        state: present
 
-    - name: Create .emacs.d/ directory
-      file:
-        path: ~/.emacs.d/
-        state: directory
-        mode: '0755'
-
-    - name: Emacs configuration
-      copy:
-        src: init.el
-        dest: ~/.emacs.d/init.el
-
-    - name: Installing hugo static site generator
+    - name: Install docker
+      import_role:
+          name: geerlingguy.docker
+      vars:
+          docker_users:
+            - "{{ user }}"
+            
+    - name: Install go
+      import_role: 
+          name: andrewrothstein.go
+    
+    - name: Install Hugo
       apt:
-        name: hugo
-        state: latest
-        update_cache: yes
+          name: hugo
+          state: present
+          
+       
