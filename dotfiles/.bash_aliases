@@ -7,6 +7,7 @@ alias gl="git log"
 alias gbr="git branch"
 alias gco="git checkout"
 alias gc="git commit"
+alias gd="git diff"
 
 # emacs
 alias e="emacs"
