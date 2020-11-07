@@ -1,8 +1,0 @@
-* Software to Install
-  - kind
-  - zsh
-* Configuration
-  - zsh prompt
-  - zsh dotfiles
-  - .emacs.d/
-
