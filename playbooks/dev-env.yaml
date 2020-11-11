@@ -4,6 +4,7 @@
   become: true
   vars:
     user: matthew
+    mdbook_url: https://github.com/rust-lang/mdBook/releases/download/v0.4.4/mdbook-v0.4.4-x86_64-unknown-linux-gnu.tar.gz
   roles:
     - geerlingguy.git
     - githubixx.kubectl
@@ -36,5 +37,11 @@
       vars:
           docker_users:
             - "{{ user }}"
-            
-       
+
+    - name: Install mdbook
+      get_url:
+        url: "{{ mdbook_url }}"
+        dest: /usr/local/bin/mdbook
+        mode: '771'
+
+
